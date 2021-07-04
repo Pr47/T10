@@ -11,10 +11,17 @@ publish = false
 name = "test_call"
 path = "src/bin/test_call.rs"
 
+[features]
+use_snmalloc = ["snmalloc-rs"]
+use_mimalloc = ["mimalloc"]
+
 [dependencies]
+snmalloc-rs = { version = "0.2", optional = true }
+mimalloc = { version = "0.1", default-features = false, optional = true }
 
 [profile.release]
 debug = true
 
 [profile.bench]
 debug = true
+
